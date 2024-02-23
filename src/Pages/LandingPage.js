@@ -32,6 +32,7 @@ const LandingPage = () => {
             Shortening your URL makes it easier to share on social media, email,
             text messages and more. Try it out below and see for yourself.
           </p>
+          <Link to="/login">
           <button
             style={{
               backgroundColor: "#0f83ff",
@@ -50,6 +51,7 @@ const LandingPage = () => {
           >
             Get Started
           </button>
+          </Link>
         </div>
         <div className="svg">
           <img src={svg} />

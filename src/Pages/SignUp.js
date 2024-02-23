@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const SignUp = () => {
   const [formData, setFormData] = useState({
@@ -21,10 +22,6 @@ const SignUp = () => {
   });
   const [errorMessages, setErrorMessages] = useState("");
 
-  const navigate = useNavigate();
-
-  useEffect(() => {}, []);
-
   const successMessage = () => {
     return (
       <div
@@ -43,23 +40,8 @@ const SignUp = () => {
       ...prevState,
       [e.target.name]: e.target.value,
     }));
-    validateInput(e);
   };
-  const validateInput = (e) => {
-    let { name, value } = e.target;
-    setErr((prevState) => {
-      const stateObj = { ...prevState, [name]: "" };
-      switch (name) {
-        case "email":
-          if (!value) {
-            stateObj[name] = "Please enter email which is not used.";
-          }
-        default:
-          break;
-      }
-      return stateObj;
-    });
-  };
+
   const errorMessage = () => {
     return (
       <div
@@ -91,6 +73,16 @@ const SignUp = () => {
       email,
       password,
     };
+    console.log(userInfo + "userrr");
+
+    axios
+      .post("http://localhost:4040/user/register", userInfo)
+      .then((res) => {
+        console.log(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
   return (
     <div className="signup_container">
