@@ -10,6 +10,8 @@ const SignUp = () => {
     password: "",
   });
 
+  const navigate = useNavigate()
+
   const { firstName, lastName, email, password } = formData;
 
   const [submitted] = useState(false);
@@ -79,6 +81,7 @@ const SignUp = () => {
       .post("http://localhost:4040/user/register", userInfo)
       .then((res) => {
         console.log(res.data);
+        navigate('/login')
       })
       .catch((err) => {
         console.log(err);

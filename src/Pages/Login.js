@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const Login = () => {
   const [formData, setFormData] = useState({
     email: "",
     password: "",
   });
+
+  const navigate = useNavigate()
 
   const { email, password } = formData;
 
@@ -16,8 +19,6 @@ const Login = () => {
     password: "",
   });
   const [errorMessages, setErrorMessages] = useState("");
-
-  const navigate = useNavigate();
 
   useEffect(() => {}, []);
 
@@ -80,6 +81,17 @@ const Login = () => {
       email,
       password,
     };
+
+    axios.post("http://localhost:4040/user/login",userInfo)
+    .then((res)=>{
+      console.log(res.data)
+      localStorage.setItem('token',res.data.token)
+      navigate('/home')
+    })
+    .catch(err=>{
+      console.log(err)
+    })
+
   };
   return (
     <div className="signup_container">
