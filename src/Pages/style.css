@@ -1,0 +1,45 @@
+.container{
+    width: 70%;
+    margin: auto;
+    top: 50px;
+    position: relative;
+    padding: 5px;
+    box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.2);
+    height: 260vh;
+}
+.nav{
+    height: 70px;
+    box-shadow: 10px 10px 20px 0px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+}
+.pic{
+    height: 50px;
+    width: 70px;
+    margin-left: 30px;
+    color: #0f83ff;
+}
+.businessownerdetails{
+    border: 2px solid #247AFD;
+    border-radius: 5px;
+    height: auto;
+}
+.bod{
+    height: 20px;
+    padding: 8px;
+    border-bottom: 1px solid #247AFD;
+    background: lightblue;
+    color: #247AFD;
+}
+
+input{
+    padding: 5px;
+    width: 235px;
+}
+
+select{
+    width: 250px; padding: 5px;
+}
