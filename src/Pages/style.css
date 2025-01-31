@@ -1,10 +1,16 @@
+input, select{
+    outline: none;
+}
+label{
+    margin-bottom: 10px;
+}
 .container{
     width: 70%;
     margin: auto;
     top: 50px;
     position: relative;
     padding: 5px;
-    box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.2);
+    /* box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.2); */
     height: 260vh;
 }
 .nav{
@@ -23,7 +29,7 @@
     color: #0f83ff;
 }
 .businessownerdetails{
-    border: 2px solid #247AFD;
+    border: 1.5px solid #247AFD;
     border-radius: 5px;
     height: auto;
 }
@@ -31,7 +37,7 @@
     height: 20px;
     padding: 8px;
     border-bottom: 1px solid #247AFD;
-    background: lightblue;
+    background: #E2EDF8;
     color: #247AFD;
 }
 

@@ -51,35 +51,30 @@ const Landing = () => {
     });
   };
 
-//   const [errors, setErrors] = useState("");
-//   const [TINErrors, setTINErrors] = useState("");
-//   const [citizenship,setciterr] =useState("");
-//   const [phone,setphoneerr] =useState("");
-//   const [province1,setpro1err] =useState("");
-//  const  [businessType,setbusinesserr] =useState("");
-//  const [companyname,setcomnameerr] =useState("");
-//   const [TIN,settinerr] =useState("");
-//    const [date,setdateerr] =useState("");
-//   const [province2,setpro2err] =useState("");
-//   const [purpose,setpurperr] =useState("");
-//   const [productcategory,setprocu] =useState("");
-//   consy [constunit,set] =useState("");
-//   const [quantity,set] =useState("");
-//   const [description,set] =useState("");
-//   const [pname,set] =useState("");
-//   const [email,set] =useState("");
-//   const [NID,set] =useState("");
-//   const [passport,set] =useState("");
+  const [errors, setErrors] = useState("");
+  //   const [TINErrors, setTINErrors] = useState("");
+  //   const [citizenship,setciterr] =useState("");
+  //   const [phone,setphoneerr] =useState("");
+  //   const [province1,setpro1err] =useState("");
+  //  const  [businessType,setbusinesserr] =useState("");
+  //  const [companyname,setcomnameerr] =useState("");
+  //   const [TIN,settinerr] =useState("");
+  //    const [date,setdateerr] =useState("");
+  //   const [province2,setpro2err] =useState("");
+  //   const [purpose,setpurperr] =useState("");
+  //   const [productcategory,setprocu] =useState("");
+  //   consy [constunit,set] =useState("");
+  //   const [quantity,set] =useState("");
+  //   const [description,set] =useState("");
+  //   const [pname,set] =useState("");
+  //   const [email,set] =useState("");
+  //   const [NID,set] =useState("");
+  //   const [passport,set] =useState("");
   const handleSubmit = () => {
     if (formData.quantity <= 0) {
       setErrors("Please Provide a number greater than zero");
       return;
     }
-    if (formData.TIN != 9) {
-      setTINErrors("TIN Number must be 9 numbers!");
-      return;
-    }
-
 
     axios
       .post("http://localhost:4040/sendEmail", formData)
@@ -106,13 +101,13 @@ const Landing = () => {
               <h4>Business Owner Details</h4>
 
               <div style={{ display: "flex", flexDirection: "column" }}>
-                <label style={{ fontWeight: "bold", fontSize: "13px" }}>
+                <label style={{ fontSize: "13px" }}>
                   Applicant Citizenship <span style={{ color: "red" }}>*</span>
                 </label>
                 <select
                   onChange={handleChange}
                   name="citizenship"
-                  style={{ width: "250px", padding: "5px" }}
+                  style={{ width: "250px", padding: "5px",outline: "none" }}
                   value={formData.citizenship}
                 >
                   <option value="#">Select Citizenship</option>
@@ -123,9 +118,10 @@ const Landing = () => {
               <div style={{ display: `${displaynid}` }}>
                 <label
                   style={{
-                    fontWeight: "bold",
+                    
                     fontSize: "13px",
                     display: "block",
+                    marginTop: "10px"
                   }}
                 >
                   Identification Document Number
@@ -136,15 +132,18 @@ const Landing = () => {
                   placeholder="ID number"
                   name="NID"
                   required={isnidRequired}
+                  value={formData.NID}
                 />
               </div>
 
               <div style={{ display: `${displaypass}` }}>
                 <label
                   style={{
-                    fontWeight: "bold",
+                    
                     fontSize: "13px",
                     display: "block",
+                    
+                    marginTop: "10px"
                   }}
                 >
                   Passport Number
@@ -155,20 +154,22 @@ const Landing = () => {
                   placeholder="passport number"
                   name="passport"
                   required={ispassRequired}
+                  onChange={handleChange}
+                  value={formData.passport}
                 />
               </div>
 
               <div style={{ display: "flex" }}>
-                <div style={{ display: "flex", flexDirection: "column" }}>
-                  <label style={{ fontWeight: "bold", fontSize: "13px" }}>
+                <div style={{ display: "flex", flexDirection: "column",marginTop: "10px" }}>
+                  <label style={{fontSize: "13px" }}>
                     Phone Number
                   </label>
                   <input
                     onChange={handleChange}
-                    type="number"
+                    // type="number"
                     value={formData.phone}
                     name="phone"
-                    placeholder="787858685"
+                    placeholder="Enter phone number"
                   />
                 </div>
                 <div
@@ -178,8 +179,8 @@ const Landing = () => {
                     marginLeft: "20px",
                   }}
                 >
-                  <label style={{ fontWeight: "bold", fontSize: "13px" }}>
-                    E-mail Address
+                  <label style={{fontSize: "13px",marginTop: "10px" }}>
+                    Email Address
                   </label>
                   <input
                     onChange={handleChange}
@@ -198,13 +199,14 @@ const Landing = () => {
                   marginBottom: "50px",
                 }}
               >
-                <label style={{ fontWeight: "bold", fontSize: "13px" }}>
+                <label style={{fontSize: "13px" }}>
                   Province <span style={{ color: "red" }}>*</span>
                 </label>
                 <select
                   onChange={handleChange}
                   name="province1"
                   value={formData.province1}
+                  style={{outline:"none"}}
                 >
                   <option value="#">Select Province</option>
                   <option value="Western">Western</option>
@@ -226,13 +228,14 @@ const Landing = () => {
 
               <div style={{ display: "flex" }}>
                 <div style={{ display: "flex", flexDirection: "column" }}>
-                  <label style={{ fontWeight: "bold", fontSize: "13px" }}>
+                  <label style={{  fontSize: "13px" }}>
                     Business Type <span style={{ color: "red" }}>*</span>
                   </label>
                   <select
                     onChange={handleChange}
                     name="businessType"
                     value={formData.businessType}
+                    style={{outline:"none"}}
                   >
                     <option>Select Business Type</option>
                     <option value="retailer">Retailer</option>
@@ -247,7 +250,7 @@ const Landing = () => {
                     marginLeft: "20px",
                   }}
                 >
-                  <label style={{ fontWeight: "bold", fontSize: "13px" }}>
+                  <label style={{  fontSize: "13px" }}>
                     Company Name <span style={{ color: "red" }}>*</span>
                   </label>
                   <input
@@ -261,10 +264,9 @@ const Landing = () => {
               </div>
 
               <div style={{ display: "flex" }}>
-                <div style={{ display: "flex", flexDirection: "column" }}>
-                  <label style={{ fontWeight: "bold", fontSize: "13px" }}>
-                    TIN Number{" "}
-                    <span style={{ color: "red" }}>* {TINErrors}</span>
+                <div style={{ display: "flex", flexDirection: "column",marginTop:"10px" }}>
+                  <label style={{  fontSize: "13px" }}>
+                    TIN Number <span style={{ color: "red" }}>* </span>
                   </label>
                   <input
                     onChange={handleChange}
@@ -279,9 +281,10 @@ const Landing = () => {
                     display: "flex",
                     flexDirection: "column",
                     marginLeft: "20px",
+                    marginTop:"10px"
                   }}
                 >
-                  <label style={{ fontWeight: "bold", fontSize: "13px" }}>
+                  <label style={{  fontSize: "13px" }}>
                     Registration Date<span style={{ color: "red" }}>*</span>
                   </label>
                   <input
@@ -301,7 +304,7 @@ const Landing = () => {
                   marginBottom: "50px",
                 }}
               >
-                <label style={{ fontWeight: "bold", fontSize: "13px" }}>
+                <label style={{ fontSize: "13px" }}>
                   Province <span style={{ color: "red" }}>*</span>
                 </label>
                 <select
@@ -329,7 +332,7 @@ const Landing = () => {
               <h4>Importation Details</h4>
 
               <div style={{ display: "flex", flexDirection: "column" }}>
-                <label style={{ fontWeight: "bold", fontSize: "13px" }}>
+                <label style={{fontSize: "13px" }}>
                   Purpose of Importation <span style={{ color: "red" }}>*</span>
                 </label>
                 <select
@@ -347,7 +350,7 @@ const Landing = () => {
               <h4>Product Details</h4>
 
               <div style={{ display: "flex", flexDirection: "column" }}>
-                <label style={{ fontWeight: "bold", fontSize: "13px" }}>
+                <label style={{ fontSize: "13px" }}>
                   Product Category <span style={{ color: "red" }}>*</span>
                 </label>
                 <select
@@ -362,8 +365,8 @@ const Landing = () => {
                 </select>
               </div>
 
-              <div style={{ display: "flex", flexDirection: "column" }}>
-                <label style={{ fontWeight: "bold", fontSize: "13px" }}>
+              <div style={{ display: "flex", flexDirection: "column",marginTop:"10px" }}>
+                <label style={{  fontSize: "13px" }}>
                   Product Name <span style={{ color: "red" }}>*</span>
                 </label>
                 <input
@@ -374,8 +377,8 @@ const Landing = () => {
                   value={formData.pname}
                 />
               </div>
-              <div style={{ display: "flex", flexDirection: "column" }}>
-                <label style={{ fontWeight: "bold", fontSize: "13px" }}>
+              <div style={{ display: "flex", flexDirection: "column" ,marginTop:"10px"}}>
+                <label style={{  fontSize: "13px" }}>
                   Weight (kg)
                 </label>
                 <input
@@ -388,8 +391,8 @@ const Landing = () => {
               </div>
 
               <div style={{ display: "flex" }}>
-                <div style={{ display: "flex", flexDirection: "column" }}>
-                  <label style={{ fontWeight: "bold", fontSize: "13px" }}>
+                <div style={{ display: "flex", flexDirection: "column",marginTop:"10px" }}>
+                  <label style={{  fontSize: "13px" }}>
                     Unit of Measurement <span style={{ color: "red" }}>*</span>
                   </label>
                   <select
@@ -409,7 +412,7 @@ const Landing = () => {
                     marginLeft: "20px",
                   }}
                 >
-                  <label style={{ fontWeight: "bold", fontSize: "13px" }}>
+                  <label style={{  fontSize: "13px",marginTop:"10px" }}>
                     Quantity of product(s)
                     <span style={{ color: "red" }}>*</span>
                     <span style={{ color: "red" }}>{errors}</span>
@@ -425,9 +428,9 @@ const Landing = () => {
                 </div>
               </div>
 
-              <div style={{ display: "flex", flexDirection: "column" }}>
-                <label style={{ fontWeight: "bold", fontSize: "13px" }}>
-                  Description of Product(s)){" "}
+              <div style={{ display: "flex", flexDirection: "column",marginTop:"10px" }}>
+                <label style={{ fontSize: "13px" }}>
+                  Description of Products{" "}
                   <span style={{ color: "red" }}>*</span>
                 </label>
                 <textarea
@@ -436,8 +439,8 @@ const Landing = () => {
                   name="description"
                   placeholder="Enter Product Description"
                   style={{
-                    width: "500px",
-                    height: "200px",
+                    width: "515px",
+                    height: "100px",
                     outline: "none",
                     marginBottom: "30px",
                   }}
