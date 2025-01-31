@@ -214,6 +214,42 @@ const Landing = () => {
                   />
                 </div>
               </div>
+              <div style={{ display: "flex" }}>
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    marginTop: "10px",
+                  }}
+                >
+                  <label style={{ fontSize: "13px" }}>Phone Number</label>
+                  <input
+                    onChange={handleChange}
+                    type="number"
+                    value={formData.phone}
+                    name="phone"
+                    placeholder="Enter phone number"
+                  />
+                </div>
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    marginLeft: "20px",
+                  }}
+                >
+                  <label style={{ fontSize: "13px", marginTop: "10px" }}>
+                    Email Address
+                  </label>
+                  <input
+                    onChange={handleChange}
+                    type="email"
+                    name="email"
+                    placeholder="Enter an email address"
+                    value={formData.email}
+                  />
+                </div>
+              </div>
 
               <div>
                 <label
@@ -448,42 +484,7 @@ const Landing = () => {
                 </select>
               </div>
 
-              <div style={{ display: "flex" }}>
-                <div
-                  style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    marginTop: "10px",
-                  }}
-                >
-                  <label style={{ fontSize: "13px" }}>Phone Number</label>
-                  <input
-                    onChange={handleChange}
-                    // type="number"
-                    value={formData.phone}
-                    name="phone"
-                    placeholder="Enter phone number"
-                  />
-                </div>
-                <div
-                  style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    marginLeft: "20px",
-                  }}
-                >
-                  <label style={{ fontSize: "13px", marginTop: "10px" }}>
-                    Email Address
-                  </label>
-                  <input
-                    onChange={handleChange}
-                    type="email"
-                    name="email"
-                    placeholder="Enter an email address"
-                    value={formData.email}
-                  />
-                </div>
-              </div>
+              
               <h4>Business Owner Address</h4>
               <div
                 style={{
