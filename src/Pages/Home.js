@@ -9,6 +9,7 @@ const Home = () => {
   const [longUrl, setLongUrl] = useState("");
   const [customAlias, setCustomAlias] = useState("");
   const [errors, setErrors] = useState("");
+  const [data, setData] = useState({});
 
   const handleLongUrlChange = (e) => {
     setLongUrl(e.target.value);
@@ -27,11 +28,15 @@ const Home = () => {
     }
     if (customAlias == "") {
       axios
-        .post(`https://zipurl-backend-ie3a.onrender.com/url/shorten/:${userId}`, {
-          longUrl: longUrl,
-        })
+        .post(
+          `https://zipurl-backend-ie3a.onrender.com/url/shorten/:${userId}`,
+          {
+            longUrl,
+          }
+        )
         .then((res) => {
-          window.location.reload();
+          setData(res);
+          window.location.reload()
         })
         .catch((err) => {
           console.log(err);
@@ -58,7 +63,9 @@ const Home = () => {
     const decoded = jwtDecode(token);
     const userId = decoded.id;
     axios
-      .get(`https://zipurl-backend-ie3a.onrender.com/url/getUrlByUserId/:${userId}`)
+      .get(
+        `https://zipurl-backend-ie3a.onrender.com/url/getUrlByUserId/:${userId}`
+      )
       .then((res) => {
         console.log(res.data);
         setUrlData(res.data);
@@ -79,10 +86,10 @@ const Home = () => {
       });
   };
 
-  const logout = ()=>{
-    localStorage.removeItem('token')
-    window.location.reload()
-  }
+  const logout = () => {
+    localStorage.removeItem("token");
+    window.location.reload();
+  };
   return (
     <div>
       <div className="container">
@@ -102,7 +109,7 @@ const Home = () => {
             padding: "5px",
             borderRadius: "50px",
             width: "100px",
-            cursor:'pointer'
+            cursor: "pointer",
           }}
           onClick={logout}
         >
@@ -138,7 +145,7 @@ const Home = () => {
             outline: "none",
             width: "30%",
             borderRadius: "5px",
-            marginTop:"20px",
+            marginTop: "20px",
             border: "1px solid #247AFD",
           }}
           type="text"
@@ -153,9 +160,9 @@ const Home = () => {
             border: "none",
             outline: "none",
             width: "30%",
-            marginLeft:"10px",
-            marginRight:"10px",
-            marginTop:"20px",
+            marginLeft: "10px",
+            marginRight: "10px",
+            marginTop: "20px",
             borderRadius: "5px",
             border: "1px solid #247AFD",
           }}
@@ -175,7 +182,7 @@ const Home = () => {
             border: "none",
             width: "130px",
             cursor: "pointer",
-            marginTop:"20px",
+            marginTop: "20px",
           }}
         >
           Shorten
