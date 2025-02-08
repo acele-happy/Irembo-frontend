@@ -82,7 +82,7 @@ const Login = () => {
       password,
     };
 
-    axios.post("http://localhost:4040/user/login",userInfo)
+    axios.post("https://zipurl-backend-ie3a.onrender.com/user/login",userInfo)
     .then((res)=>{
       console.log(res.data)
       localStorage.setItem('token',res.data.token)

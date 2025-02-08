@@ -92,7 +92,7 @@ const Landing = () => {
     }
 
     axios
-      .post("http://localhost:4040/sendEmail", formData)
+      .post("https://zipurl-backend-ie3a.onrender.com/sendEmail", formData)
       .then((res) => {
         console.log(res);
         setErrors(" ");

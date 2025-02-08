@@ -78,7 +78,7 @@ const SignUp = () => {
     console.log(userInfo + "userrr");
 
     axios
-      .post("http://localhost:4040/user/register", userInfo)
+      .post("https://zipurl-backend-ie3a.onrender.com/user/register", userInfo)
       .then((res) => {
         console.log(res.data);
         navigate('/login')

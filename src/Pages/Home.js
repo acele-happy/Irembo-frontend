@@ -27,7 +27,7 @@ const Home = () => {
     }
     if (customAlias == "") {
       axios
-        .post(`http://localhost:4040/url/shorten/:${userId}`, {
+        .post(`https://zipurl-backend-ie3a.onrender.com/url/shorten/:${userId}`, {
           longUrl: longUrl,
         })
         .then((res) => {
@@ -38,7 +38,7 @@ const Home = () => {
         });
     }
     axios
-      .post(`http://localhost:4040/url/shorten/:${userId}`, {
+      .post(`https://zipurl-backend-ie3a.onrender.com/url/shorten/:${userId}`, {
         longUrl: longUrl,
         customAlias: customAlias,
       })
@@ -58,7 +58,7 @@ const Home = () => {
     const decoded = jwtDecode(token);
     const userId = decoded.id;
     axios
-      .get(`http://localhost:4040/url/getUrlByUserId/:${userId}`)
+      .get(`https://zipurl-backend-ie3a.onrender.com/url/getUrlByUserId/:${userId}`)
       .then((res) => {
         console.log(res.data);
         setUrlData(res.data);
@@ -70,7 +70,7 @@ const Home = () => {
 
   const handleRedirect = (alias) => {
     axios
-      .post(`http://localhost:4040/url/redirect/:${alias}`)
+      .post(`https://zipurl-backend-ie3a.onrender.com/url/redirect/:${alias}`)
       .then((res) => {
         window.open(res.data, "_blank");
       })
@@ -205,7 +205,7 @@ const Home = () => {
               onClick={() => handleRedirect(url.alias)}
               key={index}
             >
-              http://localhost:4040/{url.alias}
+              https://shorturl/{url.alias}
             </span>
           ))}
         </div>
