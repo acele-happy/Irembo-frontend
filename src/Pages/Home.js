@@ -48,7 +48,7 @@ const Home = () => {
         customAlias: customAlias,
       })
       .then((res) => {
-        console.log(res.data);
+        window.location.reload()
       })
       .catch((err) => {
         setErrors(err.response.data);
