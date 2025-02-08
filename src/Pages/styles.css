@@ -2,14 +2,16 @@
     
 }
 .container{
-    height: a;
+    height: 50px !important;
+    width: 100% !important;
+    position: relative !important;
+    top: 0px !important;
     box-shadow: 10px 10px 20px 0px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
     text-align: center;
-    background-color: purple;
 }
 .pic{
     height: 50px;

@@ -136,8 +136,9 @@ const Home = () => {
             padding: "10px",
             border: "none",
             outline: "none",
-            width: "50%",
+            width: "30%",
             borderRadius: "5px",
+            marginTop:"20px",
             border: "1px solid #247AFD",
           }}
           type="text"
@@ -152,6 +153,9 @@ const Home = () => {
             border: "none",
             outline: "none",
             width: "30%",
+            marginLeft:"10px",
+            marginRight:"10px",
+            marginTop:"20px",
             borderRadius: "5px",
             border: "1px solid #247AFD",
           }}
@@ -171,6 +175,7 @@ const Home = () => {
             border: "none",
             width: "130px",
             cursor: "pointer",
+            marginTop:"20px",
           }}
         >
           Shorten
