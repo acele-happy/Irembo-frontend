@@ -16,7 +16,7 @@ const LandingPage = () => {
       </div>
       <div className="body">
         <div className="content">
-          <h1 style={{ fontSize: "70px" }}>
+          <h1 style={{ fontSize: "50px" }}>
             Shorten
             <br /> URLs, Expand <br />
             Possibilities!
@@ -30,7 +30,7 @@ const LandingPage = () => {
             }}
           >
             Shortening your URL makes it easier to share on social media, email,
-            text messages and more. Try it out below and see for yourself.
+            text messages and more. Try for yourself.
           </p>
           <Link to="/login">
           <button
